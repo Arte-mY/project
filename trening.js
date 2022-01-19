@@ -1,23 +1,30 @@
 " use strict";
 
-function hello() {
-  console.log("Hello world!");
-  
-}
+// to String
 
-hello();
+// 1)
+console.log(typeof(String(null)));
+console.log(typeof(String(4)));
 
-function hi() {
-  console.log("say hi!");
-}
+// 2)
+ console.log(typeof(5 + ''));
 
-hi();
+ const num = 5;
 
-const arr = [1, 14, 4, 30, 54],
-      sorted = arr.sort(compareNum);
+ console.log("https://vk.com/catalog/" + num);
 
-function compareNum(a, b) {
-  return a - b;
-}
+ const fontSize = 26 + 'px';
 
-console.log(sorted);
+ //to Number 
+
+ // 1)
+
+ console.log(typeof(Number('4')));
+
+ // 2)
+ console.log(typeof(+'4'));
+
+// 3) 
+console.log(typeof(parseInt("15px", 10)));
+
+let answ = +prompt("Hello","");
