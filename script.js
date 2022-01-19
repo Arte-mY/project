@@ -69,10 +69,35 @@ const personalMovieDB = {
       console.log(personalMovieDB);
     }
   },
-  writeYourGenres: function() {
-    for (let i = 1; i <= 3; i++) {
-      personalMovieDB.genres[i - 1] = prompt(`Ващ любимый жанр под номером ${i}`);
+  toggleVisibleMyDB: function() {
+    if (personalMovieDB.privat) {
+      personalMovieDB.privat = false;
+    } else {
+      personalMovieDB.privat = true;
     }
+  },
+  writeYourGenres: function() {
+    for (let i = 1; i < 2; i++) {
+      // let genre = prompt(`Ващ любимый жанр под номером ${i}`);
+
+      // if (genre === '' || genre == null) {
+      //   console.log('вы ввели некорректные данные или не ввели их вовсе');
+      //   i--;
+      // } else {
+      //   personalMovieDB.genres[i - 1] = genre;
+      // }
+      let genres = prompt(`Введите выши любимые жанры через запятую`).toLowerCase();
+      if (genres === '' || genres == null) {
+        console.log('вы ввели некорректные данные или не ввели их вовсе');
+        i--;
+      } else {
+        personalMovieDB.genres = genres.split(', ');
+        personalMovieDB.genres.sort();
+      }
+    }
+    personalMovieDB.genres.forEach((item, i) => {
+      console.log(`Любимый жанр ${i + 1} - это ${item}`);
+    });
   }
 };
 
