@@ -1,29 +1,23 @@
 " use strict";
 
-let str = "some";
-let strObj = new String(str);
+function hello() {
+  console.log("Hello world!");
+  
+}
 
-// console.log(typeof(str));
-// console.log(typeof(strObj));
+hello();
 
-console.dir([1, 2, 3]);
+function hi() {
+  console.log("say hi!");
+}
 
-const soldier = {
-  health: 400,
-  armor: 100,
-  sayHello: function() {
-    console.log("hello")
-  }
-};
+hi();
 
-const jonh = Object.create(soldier);
+const arr = [1, 14, 4, 30, 54],
+      sorted = arr.sort(compareNum);
 
-// const jonh = {
-//   health: 100
-// };
+function compareNum(a, b) {
+  return a - b;
+}
 
-// jonh.__proto__ = soldier;
-
-// Object.setPrototypeOf(jonh, soldier);
-// console.log(jonh.armor);
-jonh.sayHello();
+console.log(sorted);
