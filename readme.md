@@ -1,1 +1,1 @@
-JavaScript kurs
+JavaScript курс, библиотека React. Научись применять на практике!
