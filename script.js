@@ -24,6 +24,19 @@
 'use strict';
 
 
+let numberOfFilms;
+
+function start() {
+  numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+
+  while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
+    numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+
+  }
+}
+
+start();
+
 const personalMovieDB = {
     count: 0,
     movies: {},
@@ -119,6 +132,56 @@ const personalMovieDB = {
 
 
   
+  function rememberMyFilms() {
+    for (let i = 0; i < 2; i++) {
+      const a = prompt('Один из последних просмотренных фильмов?', ''),
+      b = prompt('На сколько оцените его?', '');
+    
+      if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+        personalMovieDB.movies[a] = b;
+        console.log('done');
+      
+      } else {
+        console.log('error');
+        i--;
+      }
+    }
+  
+  }
+
+  rememberMyFilms();
+
+  function detectPersonalLevel() {
+    if (personalMovieDB.count < 10) {
+      console.log('Просмотрено довольно мало фильмов');
+  } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+console.log('Вы классический зритель');
+} else if (personalMovieDB.count >= 30) {
+    console.log('Вы киноман');
+} else {
+    console.log('произошла ошибка');
+}
+
+  }
+  
+  detectPersonalLevel();
+
+  function showMyDB (hidden) {
+    if (!hidden) {
+      console.log(personalMovieDB);
+    }
+  }
+
+  showMyDB(personalMovieDB.privat);
+
+  function writeYourGenres() {
+    for (let i = 1; i <= 3; i++) {
+      personalMovieDB.genres[i - 1] = prompt(`Ващ любимый жанр под номером ${i}`);
+    }
+  }
+  
+  writeYourGenres();
+
   console.log(personalMovieDB);
 
 /* Задание на урок:
@@ -138,6 +201,9 @@ P.S. Функции вызывать не обязательно*/
 /* 18.01.22  
 урок номер 24
 Задание на урок:
+=======
+/* Задание на урок:
+>>>>>>> fe7ff9b86002de525f2d64d48bb0548206fdc9f7
 
 1) У нас уже есть рабочее приложение, состоящее из отдельных функций. Представьте, что
 перед вами стоит задача переписать его так, чтобы все функции стали методами объекта personalMovieDB
@@ -150,4 +216,3 @@ P.S. Функции вызывать не обязательно*/
 Если он это сделал - возвращать его к этому же вопросу. После того, как все жанры введены - 
 при помощи метода forEach вывести в консоль сообщения в таком виде:
 "Любимый жанр #(номер по порядку, начиная с 1) - это (название из массива)"*/
-
